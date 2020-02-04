@@ -48,7 +48,7 @@
 <script>
 
     // Set these variables to their DOM elements
-
+    const drinksOrdered = []
     // const coffeeImage = document.querySelector('img');
     const coffeeImage = $('img');
     // coffeeImage.setAttribute('src', 'static/coffee_beans.jpg');
@@ -65,12 +65,24 @@
 
     };
 
-    const makeCoffee = () => {
+    const coffeeBeans = () => {
+        // coffeeImage.setAttribute('src', 'static/coffee_beans.jpg');
+        coffeeImage.attr('src', 'static/coffee_beans.jpg');
+    };
+
+
+    const makeCoffee = (drinkType) => {
         // coffeeImage.setAttribute('src', 'static/coffee_machine.jpg');
+       
+
+        // drinkType = "brew"
+        drinksOrdered.push(drinkType)
+
         coffeeImage.attr('src', 'static/coffee_machine.jpg');
         setTimeout(coffeeMug, 1500);
         setTimeout(coffeeBeans, 4000);
         
+         console.log(drinksOrdered)
     };
 
     // coffeeImage.addEventListener('click', makeCoffee);
@@ -80,14 +92,11 @@
         coffeeImage.attr('src', 'static/coffee_mug.jpg');
     };
 
-    coffeeImage.on('click', makeCoffee);
+    coffeeImage.on('click', function() { makeCoffee("brew"); });
 
+   
 
-    const coffeeBeans = () => {
-        // coffeeImage.setAttribute('src', 'static/coffee_beans.jpg');
-        coffeeImage.attr('src', 'static/coffee_beans.jpg');
-    };
-
+    
    
 
 
